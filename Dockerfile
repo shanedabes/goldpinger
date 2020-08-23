@@ -13,7 +13,8 @@ RUN go mod download
 # Build goldpinger
 
 COPY . ./
-RUN make bin/goldpinger
+# RUN make bin/goldpinger
+RUN 
 
 # Build the asset container, copy over goldpinger
 

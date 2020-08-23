@@ -24,18 +24,18 @@ if [ -z "${PKG}" ]; then
     echo "PKG must be set"
     exit 1
 fi
-if [ -z "${ARCH}" ]; then
-    echo "ARCH must be set"
-    exit 1
-fi
+# if [ -z "${ARCH}" ]; then
+#     echo "ARCH must be set"
+#     exit 1
+# fi
 if [ -z "${VERSION}" ]; then
     echo "VERSION must be set"
     exit 1
 fi
 
 export CGO_ENABLED=0
-export GOARCH="${ARCH}"
-export GOOS=${GOOS:-}
+# export GOARCH="${ARCH}"
+# export GOOS=${GOOS:-}
 
 go build \
     -ldflags "-X 'main.Version=${VERSION}' -X 'main.Build=`date`'" \

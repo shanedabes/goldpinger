@@ -1,4 +1,4 @@
-name ?= goldpinger
+ame ?= goldpinger
 version ?= v3.0.0
 bin ?= goldpinger
 pkg ?= "github.com/bloomberg/goldpinger"
@@ -9,7 +9,7 @@ files = $(shell find . -iname "*.go")
 
 
 bin/$(bin): $(files)
-	GOOS=${goos} PKG=${pkg} ARCH=amd64 VERSION=${version} BIN=${bin} ./build/build.sh
+	PKG=${pkg} VERSION=${version} BIN=${bin} ./build/build.sh
 
 clean:
 	rm -rf ./vendor
@@ -27,7 +27,6 @@ swagger:
 build-multistage:
 	docker build -t $(tag) -f ./Dockerfile .
 
-build: GOOS=linux
 build: bin/$(bin)
 	docker build -t $(tag) -f ./build/Dockerfile-simple .
 
